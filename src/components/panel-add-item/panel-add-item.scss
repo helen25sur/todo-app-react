@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/bootstrap";
+
+.panel-add-item {
+
+  .panel-add-item-input {
+    background-color: $purple-400;
+    border-color: $indigo-600;
+    color: $blue-100;
+
+    &::placeholder {
+      color: $blue-100;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.todo-list-item {
+  display: flex;
+
+  &.done .todo-list-item-label {
+    text-decoration: line-through;
+  }
+
+  &.important .todo-list-item-label {
+    color: orange;
+    font-weight: bold;
+  }
+
+  .todo-list-item-label {
+    margin-right: auto;
+  }
+
+  button {
+    margin-right: 5px;
+  }
+}

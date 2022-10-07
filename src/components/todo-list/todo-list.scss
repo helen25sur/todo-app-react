@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/bootstrap";
+
+.todo-list {
+
+  li {
+    background-color: $purple-500;
+
+
+    span {
+      color: $purple-100;
+    }
+  }
+}

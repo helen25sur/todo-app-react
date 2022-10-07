@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/bootstrap";
+
+.page {
+  background-color: $indigo-900;
+  color: white;
+  font-size: 20px;
+}
+
+.todo-app {
+  padding: 25px 0;
+  max-width: 600px;
+
+  h1 {
+    color: $orange-200;
+  }
+}
