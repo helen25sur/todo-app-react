@@ -96,13 +96,9 @@ class App extends Component {
   }
 
   search = (term) => {
-    console.log(term);
     term = term.toLowerCase();
     const nArr = [...this.state.todoData];
-    console.log('102', nArr);
-    console.log('103', nArr.filter(el => el.label.toLowerCase().includes(term)));
     return nArr.filter(el => el.label.toLowerCase().includes(term));
-    // items.filter(item => item.label.toLowerCase().includes(term.toLowerCase()));
   }
 
   saveFilterStatus = (nStatus) => {
@@ -127,7 +123,6 @@ class App extends Component {
     const countTodo = this.state.todoData.length - countDone;
 
     let visibleItems = this.search(this.state.term);
-    console.log(visibleItems);
     visibleItems = this.filterItems(this.state.status, visibleItems);
     return (
       <div className='container todo-app'>
