@@ -27,6 +27,7 @@ export default class TodoListItem extends Component {
   // }
 
   onMarkImportant = () => {
+    console.log(this.props);
     this.setState((state) => {
       return {
         important: !state.important
@@ -40,6 +41,7 @@ export default class TodoListItem extends Component {
     const { important } = this.state;
 
     let classNames = !done ? 'todo-list-item' : 'todo-list-item done';
+
     if (important) {
       classNames += ' important';
     }

@@ -30,34 +30,52 @@ class App extends Component {
     });
   }
 
+  // addItem = (text) => {
+  //   const item = { // створимо об'єкт, 
+  //     label: text, // додамо текст, який отримуємо
+  //     important: false, // назначаємо важливість
+  //     done: false
+  //   };
+  //   // const prevId = this.state.todoData[this.state.todoData.length - 1].id;
+  //   // const id = prevId + 1;
+  //   // item.id = id;
+  //   // const nState = [...this.state.todoData, item];
+  //   // console.log(nState);
+  //   // this.setState({
+  //   //   todoData: nState
+  //   // });
+
+  //   this.setState((state) => { // для зміни стану, передаємо ф-цію
+  //     const todoData = state.todoData; // для зручності, змінна масиву
+  //     // збережемо останній існуючий ідентифікатор
+  //     const prevId = todoData[todoData.length - 1].id;
+
+  //     const id = prevId + 1; // збільшимо 
+  //     item.id = id; // додамо властивістю в новий об'єкт
+
+  //     const nState = [...todoData]; // копіюємо масив в нову змінну
+  //     nState.push(item); // додаємо новий об'єкт
+  //     console.log(nState);
+  //     return { todoData: nState } // повертаємо
+  //   })
+  // }
+
   addItem = (text) => {
-    const item = { // створимо об'єкт, 
-      label: text, // додамо текст, який отримуємо
-      important: false, // назначаємо важливість
-      done: false
-    };
-    const prevId = this.state.todoData[this.state.todoData.length - 1].id;
-    const id = prevId + 1;
-    item.id = id;
-    const nState = [...this.state.todoData, item];
-    console.log(nState);
-    this.setState({
-      todoData: nState
-    });
+    const item = {
+      label: text,
+      important: false
+    }
 
-    // this.setState((state) => { // для зміни стану, передаємо ф-цію
-    //   const todoData = state.todoData; // для зручності, змінна масиву
-    //   // збережемо останній існуючий ідентифікатор
-    //   const prevId = todoData[todoData.length - 1].id;
+    this.setState(({ todoData }) => {
+      const prevId = todoData[todoData.length - 1].id
+      const id = prevId + 1
+      item.id = id
+      const newState = [...todoData]
+      newState.push(item)
+      console.log(newState);
+      return { todoData: newState }
+    })
 
-    //   const id = prevId + 1; // збільшимо 
-    //   item.id = id; // додамо властивістю в новий об'єкт
-
-    //   const nState = [...todoData]; // копіюємо масив в нову змінну
-    //   nState.push(item); // додаємо новий об'єкт
-    //   console.log(nState);
-    //   return { todoData: nState } // повертаємо
-    // })
   }
 
   onToggleDone = (id) => {
@@ -78,9 +96,13 @@ class App extends Component {
   }
 
   search = (term) => {
+    console.log(term);
     term = term.toLowerCase();
     const nArr = [...this.state.todoData];
+    console.log('102', nArr);
+    console.log('103', nArr.filter(el => el.label.toLowerCase().includes(term)));
     return nArr.filter(el => el.label.toLowerCase().includes(term));
+    // items.filter(item => item.label.toLowerCase().includes(term.toLowerCase()));
   }
 
   saveFilterStatus = (nStatus) => {
@@ -91,13 +113,13 @@ class App extends Component {
 
   }
 
-  filterItems = (status) => {
+  filterItems = (status, items) => {
     if (status === 'active') {
-      return [...this.state.todoData].filter(el => !el.done);
+      return [...items].filter(el => !el.done);
     } else if (status === 'done') {
-      return [...this.state.todoData].filter(el => el.done);
+      return [...items].filter(el => el.done);
     }
-    return [...this.state.todoData];
+    return [...items];
   }
 
   render() {
@@ -105,8 +127,8 @@ class App extends Component {
     const countTodo = this.state.todoData.length - countDone;
 
     let visibleItems = this.search(this.state.term);
-    visibleItems = this.filterItems(this.state.status);
-
+    console.log(visibleItems);
+    visibleItems = this.filterItems(this.state.status, visibleItems);
     return (
       <div className='container todo-app'>
         <AppHeader toDo={countTodo} done={countDone} />
