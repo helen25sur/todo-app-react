@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# TODO App with Create React App
+
+## Deploy: https://helen25sur.github.io/todo-app-react/
+
+## Desktop view
+![image](https://user-images.githubusercontent.com/65970892/224558548-8dd828df-3bdd-406c-9ba1-e4596d26896a.png)
+
+## Mobile view
+![helen25sur github io_todo-app-react_(iPhone SE)](https://user-images.githubusercontent.com/65970892/224558595-916aa49a-e6f6-4d55-9c04-7e0bd3ac7592.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
