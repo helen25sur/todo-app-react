@@ -15,6 +15,7 @@ class App extends Component {
 
   state = {
     todoData: [
+      { label: 'Here’s a task item', important: false, id: 0, done: false },
       { label: 'Do something', important: false, id: 1, done: false },
       { label: 'Just do it!', important: true, id: 2, done: false },
       { label: 'Sleep... zzzz', important: false, id: 3, done: false }

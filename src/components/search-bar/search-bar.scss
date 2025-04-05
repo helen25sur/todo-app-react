@@ -1,14 +1,3 @@
-@import "~bootstrap/scss/bootstrap";
-
-.top-panel {
-
-  .search-bar {
-    background-color: $purple-400;
-    border-color: $indigo-600;
-    color: $blue-100;
-
-    &::placeholder {
-      color: $blue-100;
-    }
-  }
+.search-bar {
+  flex: 1;
 }

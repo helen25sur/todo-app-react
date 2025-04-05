@@ -1,5 +1,6 @@
 .todo-list-item {
   display: flex;
+  margin-left: 8px;
 
   &.done .todo-list-item-label {
     text-decoration: line-through;

@@ -18,7 +18,7 @@ export default class ItemStatusFilter extends Component {
   render() {
 
     return (
-      <div className='btn-group btn-group-sm ms-2' role='group'>
+      <div className='btn-group' role='group'>
         <button type='button'
           className={this.state.status === 'all' ? 'btn btn-warning' : 'btn btn-outline-warning'}
           onClick={() => this.onChangeStatus('all')}>
